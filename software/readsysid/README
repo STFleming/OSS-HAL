@@ -1,0 +1,7 @@
+Build Instructions:
+-Enter Altera Embedded Shell
+>~/altera/14.0/embedded/embedded_command_shell.sh
+-Call make
+>make
+
+This will produce the readsysid binary
