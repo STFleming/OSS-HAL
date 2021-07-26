@@ -36,7 +36,7 @@ set_module_property REPORT_HIERARCHY false
 # file sets
 # 
 add_fileset QUARTUS_SYNTH QUARTUS_SYNTH "" ""
-set_fileset_property QUARTUS_SYNTH TOP_LEVEL new_component
+set_fileset_property QUARTUS_SYNTH TOP_LEVEL oss_hal 
 set_fileset_property QUARTUS_SYNTH ENABLE_RELATIVE_INCLUDE_PATHS false
 set_fileset_property QUARTUS_SYNTH ENABLE_FILE_OVERWRITE_MODE false
 add_fileset_file hal_top.sv SYSTEM_VERILOG PATH OSS_HAL/hal_top.sv TOP_LEVEL_FILE
