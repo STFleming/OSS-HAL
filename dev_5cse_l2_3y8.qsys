@@ -17,6 +17,14 @@
          type = "int";
       }
    }
+   element oss_hal_0
+   {
+      datum _sortIndex
+      {
+         value = "6";
+         type = "int";
+      }
+   }
    element pio_0
    {
       datum _sortIndex
@@ -630,6 +638,7 @@
   <parameter name="usb_mp_clk_div" value="0" />
   <parameter name="use_default_mpu_clk" value="false" />
  </module>
+ <module name="oss_hal_0" kind="oss_hal" version="1.0" enabled="1" />
  <module name="pio_0" kind="altera_avalon_pio" version="20.1" enabled="1">
   <parameter name="bitClearingEdgeCapReg" value="true" />
   <parameter name="bitModifyingOutReg" value="true" />
@@ -699,7 +708,16 @@
    start="hps_0.h2f_lw_axi_master"
    end="sysid_qsys_0.control_slave">
   <parameter name="arbitrationPriority" value="1" />
-  <parameter name="baseAddress" value="0x0000" />
+  <parameter name="baseAddress" value="0x00a0" />
+  <parameter name="defaultConnection" value="false" />
+ </connection>
+ <connection
+   kind="avalon"
+   version="20.1"
+   start="hps_0.h2f_lw_axi_master"
+   end="oss_hal_0.reg_itf">
+  <parameter name="arbitrationPriority" value="1" />
+  <parameter name="baseAddress" value="0x00c0" />
   <parameter name="defaultConnection" value="false" />
  </connection>
  <connection
@@ -767,6 +785,11 @@
    kind="clock"
    version="20.1"
    start="hps_0.h2f_user0_clock"
+   end="oss_hal_0.clock_sink" />
+ <connection
+   kind="clock"
+   version="20.1"
+   start="hps_0.h2f_user0_clock"
    end="hps_0.h2f_lw_axi_clock" />
  <connection
    kind="interrupt"
@@ -805,6 +828,11 @@
  <connection kind="reset" version="20.1" start="hps_0.h2f_reset" end="pio_1.reset" />
  <connection kind="reset" version="20.1" start="hps_0.h2f_reset" end="pio_2.reset" />
  <connection kind="reset" version="20.1" start="hps_0.h2f_reset" end="pio_3.reset" />
+ <connection
+   kind="reset"
+   version="20.1"
+   start="hps_0.h2f_reset"
+   end="oss_hal_0.reset_sink" />
  <interconnectRequirement for="$system" name="qsys_mm.clockCrossingAdapter" value="HANDSHAKE" />
  <interconnectRequirement for="$system" name="qsys_mm.maxAdditionalLatency" value="4" />
 </system>
