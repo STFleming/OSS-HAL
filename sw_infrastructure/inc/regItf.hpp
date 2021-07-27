@@ -10,7 +10,7 @@
 #include <sys/mman.h>
 #include <unistd.h>
 
-#define H2F_LW_BASE 0xFF000000
+#define H2F_LW_BASE 0xFF200000
 #define BASE_ADDR 0x00C0
 
 #define MAP_SIZE 4096UL
@@ -50,11 +50,22 @@ class RegItf {
 	
 		// ToDo : Add some bound checks on the address 
 		uint32_t read(uint32_t reg) {
-			return *((uint32_t *)(_mapped_dev_base + reg));
+			return *((uint32_t *)(_mapped_dev_base+(reg*0x4)));
 		}
 
 		void write(uint32_t reg, uint32_t data) {
-			*((uint32_t *)(_mapped_dev_base + reg)) = data;
+			*((uint32_t *)(_mapped_dev_base+(reg*0x4))) = data;
+		}
+
+		// dumps the register space
+		void dump(uint32_t amount) {
+			fprintf(stderr, "\n-----------------------------\n");
+			fprintf(stderr, "\t Reg Dump\n");
+			fprintf(stderr, "-----------------------------\n");
+			for(int i=0; i<amount; i++) {
+				uint32_t creg = _paddr + i*(0x4); 
+				fprintf(stderr, "Reg: 0x%x = %u\n", creg, read(i)); 
+			}
 		}
 
 	private:

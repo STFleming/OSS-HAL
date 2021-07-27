@@ -20,27 +20,18 @@ logic [31:0] a;
 logic [31:0] b;
 logic [31:0] c;
 
+// debuging register
+logic [31:0] t;
+
 // read register process
 always_ff @(posedge hal_clk) begin
 	// we have a read pulse
 	if (reg_itf_read_in) begin
 		case(reg_itf_addr_in) 
-			4'd0: reg_itf_readdata_out <= a;
-			4'd1: reg_itf_readdata_out <= b;
-			4'd2: reg_itf_readdata_out <= c;
-			4'd3: reg_itf_readdata_out <= 32'd0;
-			4'd4: reg_itf_readdata_out <= 32'd0;
-			4'd5: reg_itf_readdata_out <= 32'd0;
-			4'd6: reg_itf_readdata_out <= 32'd0;
-			4'd7: reg_itf_readdata_out <= 32'd0;
-			4'd8: reg_itf_readdata_out <= 32'd0;
-			4'd9: reg_itf_readdata_out <= 32'd0;
-			4'd10: reg_itf_readdata_out <= 32'd0;
-			4'd11: reg_itf_readdata_out <= 32'd0;
-			4'd12: reg_itf_readdata_out <= 32'd0;
-			4'd13: reg_itf_readdata_out <= 32'd0;
-			4'd14: reg_itf_readdata_out <= 32'd0;
-			4'd15: reg_itf_readdata_out <= 32'd0;
+			4'd0: reg_itf_readdata_out <= t;
+			4'd4: reg_itf_readdata_out <= a;
+			4'd8: reg_itf_readdata_out <= b;
+			4'd12: reg_itf_readdata_out <= c;
 		endcase	
 	end
 
@@ -68,8 +59,9 @@ end
 always_ff @(posedge hal_clk) begin
 	if (reg_itf_write_in) begin
 		case(reg_itf_addr_in)
-			4'd0: a <= reg_itf_writedata_in;
-			4'd1: b <= reg_itf_writedata_in;
+			4'd0: t <= reg_itf_writedata_in;
+			4'd4: a <= reg_itf_writedata_in;
+			4'd8: b <= reg_itf_writedata_in;
 			default: begin
 			       // do nothing
 			end	
@@ -77,6 +69,7 @@ always_ff @(posedge hal_clk) begin
 	end
 
 	if (hal_reset) begin
+		t <= 32'd0;
 		a <= 32'd0;
 		b <= 32'd0;
 	end
