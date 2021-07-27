@@ -11,7 +11,7 @@
 #include <unistd.h>
 
 #define H2F_LW_BASE 0xFF200000
-#define BASE_ADDR 0x00C0
+#define BASE_ADDR 0x40000
 
 #define MAP_SIZE 4096UL
 #define MAP_MASK (MAP_SIZE - 1)
@@ -50,12 +50,18 @@ class RegItf {
 	
 		// ToDo : Add some bound checks on the address 
 		uint32_t read(uint32_t reg) {
+			if(_debug) 
+				fprintf(stderr, "Reading: 0x%x\n", (uint32_t)(_mapped_dev_base+(reg*0x4)));
 			return *((uint32_t *)(_mapped_dev_base+(reg*0x4)));
 		}
 
 		void write(uint32_t reg, uint32_t data) {
+			if(_debug)
+				fprintf(stderr, "Writing: 0x%x\n", (uint32_t)(_mapped_dev_base+(reg*0x4)));
 			*((uint32_t *)(_mapped_dev_base+(reg*0x4))) = data;
 		}
+
+		void debug(bool v) { _debug = v; }
 
 		// dumps the register space
 		void dump(uint32_t amount) {
@@ -73,4 +79,5 @@ class RegItf {
 		int _memfd;
 		void *_mapped_base;
 		void *_mapped_dev_base;
+		bool _debug = false;
 };

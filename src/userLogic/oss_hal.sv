@@ -9,7 +9,7 @@ module oss_hal (
 	// Register interface
 	input logic reg_itf_write_in,
 	input logic reg_itf_read_in,
-	input logic [3:0] reg_itf_addr_in,
+	input logic [15:0] reg_itf_addr_in,
 	output logic [31:0] reg_itf_readdata_out,
 	input logic [31:0] reg_itf_writedata_in
 
@@ -22,16 +22,29 @@ logic [31:0] c;
 
 // debuging register
 logic [31:0] t;
+logic [31:0] addr_high_water;
+
+// debug logic for capturing the high-water of the address
+always_ff @(posedge hal_clk) begin
+	
+	if(reg_itf_addr_in >= addr_high_water) begin
+		addr_high_water <= reg_itf_addr_in;
+	end
+
+	if (hal_reset) begin
+		addr_high_water <= 32'd0;
+	end
+end
 
 // read register process
 always_ff @(posedge hal_clk) begin
 	// we have a read pulse
 	if (reg_itf_read_in) begin
 		case(reg_itf_addr_in) 
-			4'd0: reg_itf_readdata_out <= t;
-			4'd4: reg_itf_readdata_out <= a;
-			4'd8: reg_itf_readdata_out <= b;
-			4'd12: reg_itf_readdata_out <= c;
+			16'h0: reg_itf_readdata_out <= addr_high_water;
+			16'h1: reg_itf_readdata_out <= a;
+			16'h2: reg_itf_readdata_out <= b;
+			16'h3: reg_itf_readdata_out <= c;
 		endcase	
 	end
 
@@ -59,9 +72,9 @@ end
 always_ff @(posedge hal_clk) begin
 	if (reg_itf_write_in) begin
 		case(reg_itf_addr_in)
-			4'd0: t <= reg_itf_writedata_in;
-			4'd4: a <= reg_itf_writedata_in;
-			4'd8: b <= reg_itf_writedata_in;
+			16'h0: t <= reg_itf_writedata_in;
+			16'h1: a <= reg_itf_writedata_in;
+			16'h2: b <= reg_itf_writedata_in;
 			default: begin
 			       // do nothing
 			end	

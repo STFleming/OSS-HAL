@@ -717,7 +717,7 @@
    start="hps_0.h2f_lw_axi_master"
    end="oss_hal_0.reg_itf">
   <parameter name="arbitrationPriority" value="1" />
-  <parameter name="baseAddress" value="0x00c0" />
+  <parameter name="baseAddress" value="0x00040000" />
   <parameter name="defaultConnection" value="false" />
  </connection>
  <connection

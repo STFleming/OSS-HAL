@@ -108,7 +108,7 @@ set_interface_property reg_itf PORT_NAME_MAP ""
 set_interface_property reg_itf CMSIS_SVD_VARIABLES ""
 set_interface_property reg_itf SVD_ADDRESS_GROUP ""
 
-add_interface_port reg_itf reg_itf_addr_in address Input 4
+add_interface_port reg_itf reg_itf_addr_in address Input 16 
 add_interface_port reg_itf reg_itf_read_in read Input 1
 add_interface_port reg_itf reg_itf_write_in write Input 1
 add_interface_port reg_itf reg_itf_readdata_out readdata Output 32

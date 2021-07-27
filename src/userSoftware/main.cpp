@@ -8,8 +8,7 @@
 int main() {
 	RegItf regs;
 
-	regs.write(0, 1234);
-	fprintf(stderr, "Value at the base %u\n", regs.read(0));
+	regs.debug(true);
 	fprintf(stderr, "A simple adder hardware check\n");
 	regs.write(1, 8); // write this into register a
 	regs.write(2, 2); // write this into register b
@@ -23,6 +22,8 @@ int main() {
 		
 		regs.dump(4);
 	}
+
+	fprintf(stderr, "Value at the base %u\n", regs.read(0));
 
 	return 0;
 }

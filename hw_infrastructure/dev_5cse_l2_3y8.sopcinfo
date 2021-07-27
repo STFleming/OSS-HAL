@@ -5,11 +5,11 @@
  version="1.0"
  fabric="QSYS">
  <!-- Format version 20.1 720 (Future versions may contain additional information.) -->
- <!-- 2021.07.27.14:42:21 -->
+ <!-- 2021.07.27.15:57:31 -->
  <!-- A collection of modules and connections -->
  <parameter name="AUTO_GENERATION_ID">
   <type>java.lang.Integer</type>
-  <value>1627393334</value>
+  <value>1627397844</value>
   <derived>false</derived>
   <enabled>true</enabled>
   <visible>false</visible>
@@ -15837,8 +15837,8 @@ parameters are a RESULT of the module parameters. -->
     <moduleName>oss_hal_0</moduleName>
     <slaveName>reg_itf</slaveName>
     <name>oss_hal_0.reg_itf</name>
-    <baseAddress>192</baseAddress>
-    <span>64</span>
+    <baseAddress>262144</baseAddress>
+    <span>262144</span>
    </memoryBlock>
    <memoryBlock>
     <isBridge>false</isBridge>
@@ -42064,8 +42064,8 @@ parameters are a RESULT of the module parameters. -->
     <moduleName>oss_hal_0</moduleName>
     <slaveName>reg_itf</slaveName>
     <name>oss_hal_0.reg_itf</name>
-    <baseAddress>192</baseAddress>
-    <span>64</span>
+    <baseAddress>262144</baseAddress>
+    <span>262144</span>
    </memoryBlock>
    <memoryBlock>
     <isBridge>false</isBridge>
@@ -43231,8 +43231,8 @@ parameters are a RESULT of the module parameters. -->
     <moduleName>oss_hal_0</moduleName>
     <slaveName>reg_itf</slaveName>
     <name>oss_hal_0.reg_itf</name>
-    <baseAddress>4280287424</baseAddress>
-    <span>64</span>
+    <baseAddress>4280549376</baseAddress>
+    <span>262144</span>
    </memoryBlock>
    <memoryBlock>
     <isBridge>false</isBridge>
@@ -44094,8 +44094,8 @@ parameters are a RESULT of the module parameters. -->
     <moduleName>oss_hal_0</moduleName>
     <slaveName>reg_itf</slaveName>
     <name>oss_hal_0.reg_itf</name>
-    <baseAddress>4280287424</baseAddress>
-    <span>64</span>
+    <baseAddress>4280549376</baseAddress>
+    <span>262144</span>
    </memoryBlock>
    <memoryBlock>
     <isBridge>false</isBridge>
@@ -71899,7 +71899,7 @@ parameters are a RESULT of the module parameters. -->
    </parameter>
    <parameter name="addressSpan">
     <type>java.math.BigInteger</type>
-    <value>64</value>
+    <value>262144</value>
     <derived>true</derived>
     <enabled>true</enabled>
     <visible>false</visible>
@@ -72198,7 +72198,7 @@ parameters are a RESULT of the module parameters. -->
    <port>
     <name>reg_itf_addr_in</name>
     <direction>Input</direction>
-    <width>4</width>
+    <width>16</width>
     <role>address</role>
    </port>
    <port>
@@ -75708,7 +75708,7 @@ the requested settings for a module instance. -->
   </assignment>
   <assignment>
    <name>embeddedsw.CMacro.TIMESTAMP</name>
-   <value>1627393334</value>
+   <value>1627397844</value>
   </assignment>
   <assignment>
    <name>embeddedsw.dts.compatible</name>
@@ -75728,7 +75728,7 @@ the requested settings for a module instance. -->
   </assignment>
   <assignment>
    <name>embeddedsw.dts.params.timestamp</name>
-   <value>1627393334</value>
+   <value>1627397844</value>
   </assignment>
   <assignment>
    <name>embeddedsw.dts.vendor</name>
@@ -75744,7 +75744,7 @@ the requested settings for a module instance. -->
   </parameter>
   <parameter name="timestamp">
    <type>int</type>
-   <value>1627393334</value>
+   <value>1627397844</value>
    <derived>true</derived>
    <enabled>false</enabled>
    <visible>false</visible>
@@ -84252,7 +84252,7 @@ parameters are a RESULT of the module parameters. -->
   </parameter>
   <parameter name="baseAddress">
    <type>java.math.BigInteger</type>
-   <value>0x00c0</value>
+   <value>0x00040000</value>
    <derived>false</derived>
    <enabled>true</enabled>
    <visible>true</visible>
