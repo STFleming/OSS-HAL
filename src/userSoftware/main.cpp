@@ -8,7 +8,6 @@
 int main() {
 	RegItf regs;
 
-	regs.debug(true);
 	fprintf(stderr, "A simple adder hardware check\n");
 	regs.write(1, 8); // write this into register a
 	regs.write(2, 2); // write this into register b

@@ -52,13 +52,13 @@ class RegItf {
 		uint32_t read(uint32_t reg) {
 			if(_debug) 
 				fprintf(stderr, "Reading: 0x%x\n", (uint32_t)(_mapped_dev_base+(reg*0x4)));
-			return *((uint32_t *)(_mapped_dev_base+(reg*0x4)));
+			return *((uint32_t *)(_mapped_dev_base)+reg);
 		}
 
 		void write(uint32_t reg, uint32_t data) {
 			if(_debug)
 				fprintf(stderr, "Writing: 0x%x\n", (uint32_t)(_mapped_dev_base+(reg*0x4)));
-			*((uint32_t *)(_mapped_dev_base+(reg*0x4))) = data;
+			*((uint32_t *)(_mapped_dev_base)+reg) = data;
 		}
 
 		void debug(bool v) { _debug = v; }

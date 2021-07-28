@@ -1,7 +1,7 @@
 CC=arm-linux-gnueabihf-g++
 
-INC=../../sw_infrastructure/inc
-CFLAGS=-Wpointer-arith
+INC=../../infrastructure/sw_infrastructure/inc
+CFLAGS=-Wno-pointer-arith
 
 .PHONY: clean
 

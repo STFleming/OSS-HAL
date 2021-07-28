@@ -6,7 +6,7 @@ build:
 	quartus_fit dev_5cse_l2_3y8
 	quartus_sta dev_5cse_l2_3y8
 	quartus_asm dev_5cse_l2_3y8
-	quartus_cpf -c output_files/dev_5cse_l2_3y8.sof ../bitstream.rbf
+	quartus_cpf -c output_files/dev_5cse_l2_3y8.sof ./bitstream.rbf
 
 clean:
 	rm -rf db

@@ -39,8 +39,8 @@ add_fileset QUARTUS_SYNTH QUARTUS_SYNTH "" ""
 set_fileset_property QUARTUS_SYNTH TOP_LEVEL oss_hal 
 set_fileset_property QUARTUS_SYNTH ENABLE_RELATIVE_INCLUDE_PATHS false
 set_fileset_property QUARTUS_SYNTH ENABLE_FILE_OVERWRITE_MODE false
-source ../src/userLogic/files.tcl
-add_fileset_file oss_hal.sv SYSTEM_VERILOG PATH ../src/userLogic/oss_hal.sv TOP_LEVEL_FILE
+source ../../src/userLogic/files.tcl
+add_fileset_file oss_hal.sv SYSTEM_VERILOG PATH ../../src/userLogic/oss_hal.sv TOP_LEVEL_FILE
 
 
 # 
