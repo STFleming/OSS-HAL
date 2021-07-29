@@ -41,4 +41,5 @@ TODO: write something here
 * create a deployment script
 
 ## Versions
+* 0.1.1 -- Decoupled the userLogic and userSoftware from the OSS-HAL repository so that the OSS-HAL repository can be included as a submodule.
 * 0.1.0 -- Avalon S interface working along with software libs.

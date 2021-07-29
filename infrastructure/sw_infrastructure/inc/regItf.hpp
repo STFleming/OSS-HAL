@@ -48,7 +48,6 @@ class RegItf {
 			close(_memfd);	
 		}
 	
-		// ToDo : Add some bound checks on the address 
 		uint32_t read(uint32_t reg) {
 			return *((uint32_t *)(_mapped_dev_base)+reg);
 		}
