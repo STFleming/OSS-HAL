@@ -1,5 +1,5 @@
 # OSS-HAL : OPS-SAT Swansea Hardware Abstraction Layer 
-### Version 0.1.0
+### Version 0.1.2
 
 Provides a hardware abstraction layer (HAL) around the OPS-SAT FPGA device alowing for the rapid deployment and testing of hardware designs..
 
@@ -40,6 +40,7 @@ TODO: write something here
 * tidy up the structure of the folders
 * create a deployment script
 
-## Versions
+## Version Historyn
+* 0.1.2 -- test_deploy makefile fixes 
 * 0.1.1 -- Decoupled the userLogic and userSoftware from the OSS-HAL repository so that the OSS-HAL repository can be included as a submodule.
 * 0.1.0 -- Avalon S interface working along with software libs.
