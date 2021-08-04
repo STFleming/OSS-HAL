@@ -24,16 +24,16 @@ image: sw hw
 
 test_deploy: image
 	echo "echo 0 > /sys/class/fpga-bridge/fpga2hps/enable" > image/deploy.sh	
-	echo "echo 0 > /sys/class/fpga-bridge/hps2fpga/enable" > image/deploy.sh	
-	echo "echo 0 > /sys/class/fpga-bridge/lwhps2fpga/enable" > image/deploy.sh	
-	echo "dd if=.test/bitstream.rbf of=/dev/fpga0 bs=1M" > image/deploy.sh	
-	echo "echo 1 > /sys/class/fpga-bridge/fpga2hps/enable" > image/deploy.sh	
-	echo "echo 1 > /sys/class/fpga-bridge/hps2fpga/enable" > image/deploy.sh	
-	echo "echo 1 > /sys/class/fpga-bridge/lwhps2fpga/enable" > image/deploy.sh	
-	echo ".test/sw_driver.o" > image/deploy.sh	
+	echo "echo 0 > /sys/class/fpga-bridge/hps2fpga/enable" >> image/deploy.sh	
+	echo "echo 0 > /sys/class/fpga-bridge/lwhps2fpga/enable" >> image/deploy.sh	
+	echo "dd if=.test/image/bitstream.rbf of=/dev/fpga0 bs=1M" >> image/deploy.sh	
+	echo "echo 1 > /sys/class/fpga-bridge/fpga2hps/enable" >> image/deploy.sh	
+	echo "echo 1 > /sys/class/fpga-bridge/hps2fpga/enable" >> image/deploy.sh	
+	echo "echo 1 > /sys/class/fpga-bridge/lwhps2fpga/enable" >> image/deploy.sh	
+	echo ".test/image/sw_driver.o" >> image/deploy.sh	
 	chmod u+x image/deploy.sh
 	scp -r image $(TEST_DEV_SSH):~/.test
-	ssh $(TEST_DEV_SSH) '.test/deploy.sh' 
+	ssh $(TEST_DEV_SSH) '.test/image/deploy.sh' 
 
 clean:
 	rm -rf image/ 

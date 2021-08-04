@@ -8,6 +8,6 @@ module add_test(
 	output logic [3:0] c_out
 );
 
-assign c_out = a_in + b_in;
+assign c_out = a_in - b_in;
 
 endmodule
